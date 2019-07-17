@@ -60,3 +60,6 @@ Using an Arduino Uno as ISP
   - Tools -> Processor -> ATmega1284 or ATmega1284P (16 MHz)
   - Tools -> Port -> Choose the port your printer is connected to
 - Flash the sketch to the printer (upload button, or Ctrl + U)
+
+## Adding auto bed levelling
+- Purchased a '3D Touch' from [here](https://www.aliexpress.com/item/32913903746.html)
