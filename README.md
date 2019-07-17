@@ -35,3 +35,28 @@ Using an Arduino Uno as ISP
   - Tools -> Board -> Sanguino
   - Tools -> Programmer -> Arduino as ISP
   - Tools -> Burn Bootloader
+
+## Flashing firmware
+### Getting required files/setting up the IDE
+- Download the latest version of Marlin firmware [here](http://marlinfw.org/meta/download/)
+- Extract it somewhere, and go to `Marlin-X.X.X/Marlin/example_configurations/Creality/Ender-3`
+- Read `README.md` and note the latest supported version of U8Glib
+- Copy all files from this directory to `Marlin-X.X.X/Marlin`. Overwrite files.
+- Download the latest supported version of U8glib
+  - In this case it was 1.17 which can be found [here](https://bintray.com/olikraus/u8glib/Arduino/1.17)
+- Open the Arduino IDE, and open `Marlin-X.X.X/Marlin/Marlin.ino`
+- Go to Sketch -> Include Library -> Add .ZIP Library
+- Browse and select the latest supported version of U8glib you downloaded, and hit 'OK'
+- Edit the Marlin configuration to enable/disable any features you'd like
+  - Hit `Ctrl + F` -> 'Search all sketch tabs' to find these
+  - Uncomment `#define arc_support`
+  - Uncomment `#define MESH_BED_LEVELING`
+  - Uncomment `#define LCD_BED_LEVELING`
+  - Uncomment `#define SLIM_LCD_MENUS`
+  
+### Flash the firmware
+- Set the board, processor and port
+  - Tools -> Board -> Sanguino
+  - Tools -> Processor -> ATmega1284 or ATmega1284P (16 MHz)
+  - Tools -> Port -> Choose the port your printer is connected to
+- Flash the sketch to the printer (upload button, or Ctrl + U)
