@@ -53,6 +53,7 @@ Using an Arduino Uno as ISP
   - Uncomment `#define MESH_BED_LEVELING`
   - Uncomment `#define LCD_BED_LEVELING`
   - Uncomment `#define SLIM_LCD_MENUS`
+  - To do: provide diff of changes, with explanation
   
 ### Flash the firmware
 - Set the board, processor and port
@@ -63,3 +64,21 @@ Using an Arduino Uno as ISP
 
 ## Adding auto bed levelling
 - Purchased a '3D Touch' from [here](https://www.aliexpress.com/item/32913903746.html)
+- Print the mount [here](https://www.thingiverse.com/thing:2990086)
+- Turn off power, unplug, remove 3 hex screws from control box + remove lid. Detach fan cable to remove lid completely
+- Clear route from control box to hot end. Cut zip ties, cut tape around control box, take back cable management sheath
+- Remove two hex screws on hot end case
+- Place 3D Touch and put hex screws back in
+- Route wires from 3D touch through sleeve (including extension). Approx 90cm extension required, so extend if necessary
+- Connect 5 wires from 3D Touch
+  - Remove Z stop & replace with Black + White wire from 3D Touch
+  - Connect power + ground via pins on SPI bus
+  - Connect brown wire to pin 27 (buzzer pin on display)
+- Flash new firmware (to do: add setup)
+- Check that 3D touch is responding
+  - It should extend/retract twice when turning on for the first time
+  - In the menus, test extend and retract
+  - Move up from bed (eg. 200mm). Choose to 'Auto home', and tap the 3D touch with your finger. If it doesn't stop, then turn off machine from power (to avoid damaging print head on impact with bed)
+  - Auto home. It should move to the center of the bed. If not, check 'Z-switch removed' section above.
+  
+## Checking repeatability of sensor
